@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}変更 {{ post['name'] }}さま{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="name">名前</label>
+    <input name="name" id="name"  value="{{ post['name'] }}" required>
+    <label for="name">性別</label>
+    <input name="gender" id="gender"  value="{{ post['gender'] }}" required>
+    <label for="name">誕生日</label>
+    <input name="birthday"  type="date" id="birthday"  value="{{ post['birthday'] }}" required>
+
+    <label for="name">仕事</label>
+    <input name="work" id="work"  value="{{request.form['work'] or post['work'] }}" required>
+
+    <label for="name">学歴</label>
+    <input name="edu" id="edu"  value="{{request.form['edu'] or post['edu'] }}" required>
+    <label for="name">身長</label>
+    <input name="height" id="height"  value="{{request.form['height'] or post['height'] }}" required>
+    <label for="name">体形</label>
+    <input name="figure" id="figure"  value="{{request.form['figure'] or post['figure'] }}" required>
+    <label for="name">年収(単位万)</label>
+    <input name="income" id="income"  value="{{request.form['income'] or post['income'] }}" required>
+    <label for="name">趣味</label>
+    <input name="hobby" id="hobby"  value="{{request.form['hobby'] or post['hobby'] }}" required>
+    <label for="name">タバコ(喫煙者１、非喫煙者２(半角数字))</label>
+    <input name="smoking" id="smoking"  value="{{request.form['smoking'] or post['smoking'] }}" required>
+    <label for="name">婚活状況</label>
+    <input name="state" id="state"  value="{{request.form['state'] or post['state'] }}" required>
+    <label for="image">写真(変更をしない場合はアップロード不要)</label>
+    <input name="image" id="image" type="file" >
+
+    
+
+
+
+    <label for="body">Body</label>
+    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}閲覧 "{{ post['name'] }}"さま{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+
+<div >氏名：{{ post['name']}}</div>
+<div >性別：{{ post['gender']}}</div>
+<div >誕生日：{{ post['birthday']}}</div>
+<div >学歴：{{ post['edu']}}</div>
+<div >職種：{{ post['work']}}</div>
+<div >身長：{{ post['height']}}</div>
+<div >体形：{{ post['figure']}}</div>
+<div >年収：{{ post['income']}}</div>
+<div >趣味：{{ post['hobby']}}</div>
+<div >喫煙：{{ post['smoking']}}</div>
+<div >その他：{{ post['body']}}</div>
+<div >婚活状況：{{ post['state']}}</div>
+<image src="{{ path }}"></image>
+<a class="action" href="{{ url_for('main.index') }}">戻る</a>
+
+{% endblock %}

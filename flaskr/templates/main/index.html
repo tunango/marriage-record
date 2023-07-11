@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}婚活者一覧{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('main.index') }}">検索解除</a>
+    <a class="action" href="{{ url_for('main.create') }}">新規作成</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<form method="get" action="{{ url_for('main.index') }}">
+  <input type="text" name="keyword" placeholder="検索したい名前を入力してください">
+
+  <select name="gender">
+    <option value="">性別選択</option>
+    <option value="1">男性</option>
+    <option value="2">女性</option>
+  </select>
+  <button type="submit">検索</button>
+</form>
+
+{% for row in posts %}
+  <article class="post">
+    <header>
+      <div>
+        <h1>{{row['name']}}</h1>
+        <div class="about"> 年収：{{ row['income']}}  万円</div>
+        <p>Age: {{ row['age'] }}</p>
+        <image src="{{row['image']}}"></image>
+        <a class="action" href="{{url_for('main.update',id=row['id'])}}">情報変更</a>
+        <a class="action" href="{{url_for('main.view',id=row['id'])}}">情報表示</a>
+
+      </div>
+    </header>
+  </article>
+  {% if not loop.last %}
+    <hr>
+  {% endif %}
+{% endfor %}
+
+{% endblock %}
