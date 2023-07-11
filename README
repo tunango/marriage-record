@@ -1,0 +1,11 @@
+# 以下の手順でdebugモード開発
+
+## イメージビルド
+## ~/marriage-record$ docker compose build
+
+## ~/marriage-record$ docker compose up 
+
+## localhost:5000にアクセス
+## 更新で反映
+
+## ctrl ^C でexit

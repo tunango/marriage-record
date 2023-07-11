@@ -1,0 +1,2 @@
+#git管理から除外
+/flaskr/__pycache__/

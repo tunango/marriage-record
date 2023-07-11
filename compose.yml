@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: marriage-record
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 5000:5000
